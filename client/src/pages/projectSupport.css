@@ -1,0 +1,106 @@
+/* Project Support — uses the design tokens from index.css */
+
+.ps-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.ps-card h3 { margin: 0 0 10px; font-size: 14px; }
+
+.ps-back { margin-bottom: 14px; }
+
+.ps-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ps-title-row h1 { margin: 0; }
+
+.ps-note-ok {
+  display: inline-block;
+  background: var(--internship-soft);
+  color: #0a7d55;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+.ps-empty-note { color: var(--ink-dim); font-size: 13px; margin: 0; }
+.ps-text { white-space: pre-wrap; font-size: 13.5px; line-height: 1.6; color: var(--ink); margin: 0; }
+
+/* stats row (staff) */
+.ps-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin: 16px 0; }
+.ps-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.ps-stat strong { font-size: 22px; }
+.ps-stat span { font-size: 12px; color: var(--ink-dim); }
+
+/* table */
+.ps-table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-top: 14px;
+}
+.ps-table-wrap table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ps-table-wrap th {
+  text-align: left; padding: 11px 14px; font-size: 12px; font-weight: 600;
+  color: var(--ink-dim); background: var(--surface-2); border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.ps-table-wrap td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.ps-table-wrap tr:last-child td { border-bottom: none; }
+.ps-table-wrap small { color: var(--ink-faint); }
+.ps-clickable { cursor: pointer; }
+.ps-clickable:hover { background: var(--surface-2); }
+
+/* key/value grid */
+.ps-kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; font-size: 13.5px; }
+.ps-kv label { display: block; font-size: 12px; color: var(--ink-dim); margin-bottom: 2px; }
+.ps-kv a { color: var(--blue); word-break: break-all; }
+
+/* student form */
+.ps-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; max-width: 760px; }
+.ps-form label { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 500; color: var(--ink-dim); }
+.ps-full { grid-column: 1 / -1; }
+@media (max-width: 640px) { .ps-form { grid-template-columns: 1fr; } }
+
+/* staff actions */
+.ps-actions { display: flex; flex-direction: column; gap: 14px; }
+.ps-actions label { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; font-weight: 500; color: var(--ink-dim); }
+.ps-action-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.ps-action-row label { flex: 1; min-width: 180px; }
+.btn-success { background: linear-gradient(135deg, #34d399, #10b981); color: #03261a; }
+
+/* thread */
+.ps-thread-tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.ps-messages { display: flex; flex-direction: column; gap: 10px; max-height: 420px; overflow-y: auto; margin-bottom: 14px; }
+.ps-bubble {
+  max-width: 78%;
+  align-self: flex-start;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 9px 13px;
+}
+.ps-bubble.mine { align-self: flex-end; background: #e6f0ff; border-color: #c7dcff; }
+.ps-bubble p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.5; white-space: pre-wrap; }
+.ps-bubble-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11.5px; color: var(--ink-faint); }
+.ps-bubble-meta strong { color: var(--ink); font-size: 12px; }
+.ps-staff-tag {
+  background: var(--workshop-soft); color: #6d3fc9;
+  padding: 1px 8px; border-radius: var(--radius-pill); font-weight: 600;
+}
+.ps-reply { display: flex; gap: 10px; align-items: flex-end; }
+.ps-reply textarea { flex: 1; resize: vertical; }
+
+/* history */
+.ps-history { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.ps-history li { display: flex; gap: 14px; font-size: 13px; padding-left: 12px; border-left: 2px solid var(--border-strong); }
+.ps-history time { min-width: 140px; color: var(--ink-faint); font-size: 12px; }
+.ps-history-body em { color: var(--ink-dim); }

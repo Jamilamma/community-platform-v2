@@ -1,0 +1,30 @@
+{
+  "info": { "name": "Community & Opportunities Platform", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5000/api" }, { "key": "token", "value": "" }],
+  "item": [
+    { "name": "Register Student", "request": { "method": "POST", "url": "{{baseUrl}}/auth/register",
+      "body": { "mode": "raw", "raw": "{\"name\":\"Test Student\",\"email\":\"student@test.com\",\"password\":\"password123\"}" },
+      "header": [{ "key": "Content-Type", "value": "application/json" }] } },
+    { "name": "Login", "request": { "method": "POST", "url": "{{baseUrl}}/auth/login",
+      "body": { "mode": "raw", "raw": "{\"email\":\"student@test.com\",\"password\":\"password123\"}" },
+      "header": [{ "key": "Content-Type", "value": "application/json" }] } },
+    { "name": "Get Me", "request": { "method": "GET", "url": "{{baseUrl}}/auth/me",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }] } },
+    { "name": "List Internships", "request": { "method": "GET", "url": "{{baseUrl}}/internships" } },
+    { "name": "Create Internship (staff)", "request": { "method": "POST", "url": "{{baseUrl}}/internships",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+      "body": { "mode": "raw", "raw": "{\"title\":\"Data Science Internship\",\"description\":\"...\",\"deadline\":\"2026-12-01\"}" } } },
+    { "name": "Apply to Internship (student)", "request": { "method": "POST", "url": "{{baseUrl}}/internships/:id/apply",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }] } },
+    { "name": "My Applications (student)", "request": { "method": "GET", "url": "{{baseUrl}}/applications/mine",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }] } },
+    { "name": "All Applications (staff)", "request": { "method": "GET", "url": "{{baseUrl}}/applications",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }] } },
+    { "name": "Update Application Status (staff)", "request": { "method": "PATCH", "url": "{{baseUrl}}/applications/:id/status",
+      "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+      "body": { "mode": "raw", "raw": "{\"status\":\"Shortlisted\"}" } } },
+    { "name": "Unauthorized check: Student hits Staff-only route", "request": { "method": "POST", "url": "{{baseUrl}}/internships",
+      "header": [{ "key": "Authorization", "value": "Bearer {{studentToken}}" }],
+      "body": { "mode": "raw", "raw": "{}" } }, "description": "Expect 403 Forbidden" }
+  ]
+}
